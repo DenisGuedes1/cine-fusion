@@ -1,0 +1,6 @@
+.evn
+node_modules
+.txt
+createTable.txt
+rmigrations.txt
+package-lock.json
