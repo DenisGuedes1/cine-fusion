@@ -6,8 +6,7 @@ import { AppError } from "../../error/handleError";
 export const getUserByIdService = async (idUser: string) => {
     const userRepository = AppDataSource.getRepository(Users);
     const findUser = await userRepository.findOne({
-        where: { id: idUser },
-        relations: ["adress"],
+        where: { id: idUser }
     });
     if (!findUser) {
         throw new AppError("User not found", 404);

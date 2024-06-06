@@ -16,8 +16,7 @@ const handleError_1 = require("../../error/handleError");
 const getUserByIdService = (idUser) => __awaiter(void 0, void 0, void 0, function* () {
     const userRepository = data_source_1.AppDataSource.getRepository(user_entities_1.Users);
     const findUser = yield userRepository.findOne({
-        where: { id: idUser },
-        relations: ["adress"],
+        where: { id: idUser }
     });
     if (!findUser) {
         throw new handleError_1.AppError("User not found", 404);

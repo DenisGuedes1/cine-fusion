@@ -21,6 +21,7 @@ NotAdminRouter.get("/user", verifyTokenIsvalid_middleware_1.veriFyTokenIsValid, 
 NotAdminRouter.delete("/users/delete", verifyTokenIsvalid_middleware_1.veriFyTokenIsValid, verifyIdUser_1.verifyUserId, deleteUser_controller_1.deleteUserController);
 NotAdminRouter.patch("/update-user", verifyTokenIsvalid_middleware_1.veriFyTokenIsValid, verifyIdUser_1.verifyUserId, updateUser_controller_1.updatedUserController);
 NotAdminRouter.patch("/reset-password/:token", sendReseteEmailPassword_1.resetPasswordController);
+// rotas em adicionar para assistir mais tarde
 NotAdminRouter.post('/:userId/watch-later', verifyTokenIsvalid_middleware_1.veriFyTokenIsValid, addWatchToLater_controller_1.addToWatchLater);
 NotAdminRouter.get('/:userId/watch-later', verifyTokenIsvalid_middleware_1.veriFyTokenIsValid, verifyIdUser_1.verifyUserId, addWatchToLater_controller_1.getWatchLater);
 exports.default = NotAdminRouter;

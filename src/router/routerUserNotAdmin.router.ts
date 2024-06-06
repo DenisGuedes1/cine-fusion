@@ -41,6 +41,7 @@ NotAdminRouter.delete(
 );
 NotAdminRouter.patch("/update-user", veriFyTokenIsValid,verifyUserId, updatedUserController);
 NotAdminRouter.patch("/reset-password/:token", resetPasswordController);
+// rotas em adicionar para assistir mais tarde
 NotAdminRouter.post('/:userId/watch-later', veriFyTokenIsValid,addToWatchLater);
 NotAdminRouter.get('/:userId/watch-later', veriFyTokenIsValid,verifyUserId,getWatchLater);
 export default NotAdminRouter;
