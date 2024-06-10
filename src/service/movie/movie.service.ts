@@ -29,7 +29,6 @@ try {
         await AppDataSource.getRepository(Movie).save(newMovie);
 
         const verifyMovieField = returnCreatedMovie.parse(newMovie);
-        console.log(verifyMovieField, "verificando os campos service");
 
         return verifyMovieField;
     } else {
