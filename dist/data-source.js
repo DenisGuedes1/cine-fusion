@@ -30,6 +30,10 @@ const dataSourceConfig = () => {
         logging: true,
         entities: [entitiesPath],
         migrations: [migrationPath],
+        extra: {
+            max: 30,
+            idleTimeoutMillis: 30000, // Tempo ocioso antes de uma conexão ser fechada
+        },
     };
 };
 exports.AppDataSource = new typeorm_1.DataSource(dataSourceConfig());

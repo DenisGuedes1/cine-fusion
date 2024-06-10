@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const schema_movies_1 = require("../../schema/schema.movies");
+const validatedBody_middleware_1 = require("../../middleware/validatedBody.middleware");
+const created_movie_controller_1 = require("../../controlleer/movie/created.movie.controller");
+const getAllmovies_1 = require("../../controlleer/movie/getAllmovies");
+const deleteMovie_1 = require("../../controlleer/movie/deleteMovie");
+const movieRouter = (0, express_1.Router)();
+movieRouter.post("/movie/new", (0, validatedBody_middleware_1.validateDataMiddleware)(schema_movies_1.createdMovieSchema), created_movie_controller_1.createdMovieController);
+movieRouter.get("/get", getAllmovies_1.getAlMovieController);
+movieRouter.delete("/del/", deleteMovie_1.deleteMovieController);
+exports.default = movieRouter;

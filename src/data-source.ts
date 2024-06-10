@@ -29,6 +29,10 @@ const dataSourceConfig = (): DataSourceOptions => {
     logging: true,
     entities: [entitiesPath],
     migrations: [migrationPath],
+    extra: {
+      max: 30, // Número máximo de conexões no pool
+      idleTimeoutMillis: 30000, // Tempo ocioso antes de uma conexão ser fechada
+    },
   };
 };
 

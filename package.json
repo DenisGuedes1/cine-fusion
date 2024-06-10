@@ -2,6 +2,7 @@
   "dependencies": {
     "@types/nodemailer": "^6.4.8",
     "@types/pg-format": "^1.0.2",
+    "axios": "^1.7.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "env": "^0.0.2",
