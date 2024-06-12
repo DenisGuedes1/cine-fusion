@@ -2,7 +2,7 @@ import "dotenv/config";
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { AppError } from "../error/handleError";
-const SECRET_KEY = process.env.JWT_SECRET || "default_secret";
+const SECRET_KEY = process.env.JWT_SECRET || "noisuf";
 export const veriFyTokenIsValid = async (
     req: Request,
     resp: Response,

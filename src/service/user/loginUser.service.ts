@@ -4,8 +4,7 @@ import { AppDataSource } from "../../data-source";
 import { Users } from "../../entities/user.entities";
 import { AppError } from "../../error/handleError";
 import { TLoginUser } from "../../interface/interfaceProducts";
-
-const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "noisuf";
 export const createdLoginService = async (
     loginData: TLoginUser
 ): Promise<string> => {
