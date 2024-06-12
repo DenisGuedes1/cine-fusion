@@ -35,7 +35,7 @@ const proxyOptions= {
 };
 // app.use('/api/validation', tokenValidationRouter);
 app.use('/api/validation', veriFyTokenIsValid, tokenValidationRouter);
-app.use('/videos', veriFyTokenIsValid,createProxyMiddleware(proxyOptions));
+app.use('/videos',createProxyMiddleware(proxyOptions));
 app.use("/user", userRouter);
 app.use("/cinefusion", NotAdminRouter);
 app.use("/priv",movieRouter)
