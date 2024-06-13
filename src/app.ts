@@ -33,7 +33,34 @@ const proxyOptions= {
         console.log(`Proxying request to: ${proxyReq.getHeader('host')}${proxyReq.path}`);
     }
 };
-// app.use('/api/validation', tokenValidationRouter);
+
+const proxyOptionsMovie = {
+    target: 'https://embedder.net',
+    changeOrigin: true,
+    pathRewrite: (path: string, req: express.Request) => {
+        // Extrair o IMDb ID da URL original e construir a nova URL
+        const imdbId = path.split('/').pop(); // Extrai o IMDb ID da URL original
+        return `/e/${imdbId}`;
+    },
+    onProxyReq: (proxyReq: http.ClientRequest, req: express.Request, res: express.Response) => {
+        console.log(`Proxying request to: ${proxyReq.getHeader('host')}${proxyReq.path}`);
+    }
+};
+const proxyOptionsFlixTwo = {
+    target: 'https://superflixapi.top',
+    changeOrigin: true,
+    pathRewrite: (path: string, req: express.Request) => {
+        // Extrair o IMDb ID da URL original e construir a nova URL
+        const imdbId = path.split('/').pop(); // Extrai o IMDb ID da URL original
+        return `/filme/${imdbId}`;
+    },
+    onProxyReq: (proxyReq: http.ClientRequest, req: express.Request, res: express.Response) => {
+        console.log(`Proxying request to: ${proxyReq.getHeader('host')}${proxyReq.path}`);
+    }
+};
+
+app.use('/embed/servertwo', createProxyMiddleware(proxyOptionsFlixTwo));
+app.use('/embed/movie', createProxyMiddleware(proxyOptionsMovie));
 app.use('/api/validation', veriFyTokenIsValid, tokenValidationRouter);
 app.use('/videos',createProxyMiddleware(proxyOptions));
 app.use("/user", userRouter);
